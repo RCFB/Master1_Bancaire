@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %} Connexion {% endblock %}
+{% block content %}
+
+      <form action="/accueil_user.html" method="post">
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input class="form-control border border-success" id="email" name="email" type="text" required="" placeholder="votre_mail@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Mot de Passe *</label>
+          <input class="form-control border border-success" id="password" name="password" required="" type="password" value="" placeholder="Votre_Mot_de_Passe">
+        </div>
+        <br>
+        <div>
+          <p class="text h6"> Les champs signalées avec * sont obligatoires</p>
+        </div>
+        <br>
+        <div class="container">
+           <p class="tabulation">
+              <button type="submit" class="btn btn-outline-success">Se Connecter</button>
+            --- ou --- <a class="btn btn-outline-success" href="/sign_up.html">Creer un Compte</a>
+            </p>
+          </div>
+        
+      </form>
+    </div>
+{% endblock %}

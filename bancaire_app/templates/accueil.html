@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %} Accueil {% endblock %}
+{% block content %}
+
+        <div class="col">
+          <p class="text-center h2">Bonjour et Bienvenu</p>
+          <!--"""{{montantrand}}
+          {{user_connected}}""" -->
+          <br>
+          <p class="text h4">Vous êtes sur la page d'accueil de notre application de gestion de compte bancaire .<br>
+            Afin d'utiliser notre application, il faut être inscrit, vous pouvez vous <a href="/sign_up.html">inscrire ici.</a><br>
+            Si vous êtes déjà inscrit veiller vous <a href="/sign_in.html">connecter ici.</a></p>
+            <br>
+        </div>
+
+      <table class="table table-striped table-borderless border border-success">
+        <thead class="" style="background-color: #03d437">
+          <tr>
+            <th>Date</th>  <!-- date d'operation -->
+            <th>Libellé</th>  <!-- Operation  -->
+            <th>Rubrique</th>  <!-- Type de depence ou revenu "alimentation, santé, salaire..." -->
+            <th>Mode</th>  <!-- Type  " cheque, especes, carte bleu, Paypal, virement" -->
+            <th>N.ref</th>  <!-- Numero de chéque, virement si payé par chéque ou virement-->
+            <th>Tiers</th>
+            <th>Cat</th>  <!-- categorie d'operation "recettes, depenses"-->
+            <th>Montant</th>  <!-- Montan de l'operation -->
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="">
+            <td>12/05/2019</td>
+            <td>courses</td>
+            <td>Courses</td>
+            <td>Cheque</td>
+            <td>1</td>
+            <td>Auchant</td>
+            <td>Depense</td>
+            <td>-110</td>
+          </tr>
+
+          <tr class="">
+            <td>14/05/2019</td>
+            <td>Medicaments</td>
+            <td>Sante</td>
+            <td>Especes</td>
+            <td></td>
+            <td>Pharmacie toto</td>
+            <td>Depense</td>
+            <td>-100</td>
+          </tr>
+
+          <tr class="">
+            <td>30/05/2019</td>
+            <td>Salaire Novembre</td>
+            <td>salaire</td>
+            <td>Virement</td>
+            <td>125621</td>
+            <td>Circet</td>
+            <td>Recette</td>
+            <td>1210</td>
+          </tr>
+        </tbody>
+
+        <thead class="" style="background-color: #a0dfa0">
+          <tr>
+            <td><strong>Compte</strong></td>
+            <td>
+              <a class="" href="/comptes.html"><strong>Courant CIC</strong></a>
+            </td>
+            <td></td>
+            <th></th>
+            <th></th>  
+            <th></th>  
+            <th>Solde</th> 
+            <th>1000</th>
+          </tr>
+        </thead>
+
+      </table>
+{% endblock %}

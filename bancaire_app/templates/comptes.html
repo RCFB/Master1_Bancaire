@@ -1,0 +1,95 @@
+{% extends "base_user.html" %}
+{% block title %} Comptes {% endblock %}
+{% block content %}
+
+      <div class="col">
+        <p class="text h5">Voici un resume des comptes .<br>
+          <p class="text h5">{{comptes}} .<br>
+
+      </div>
+      <br>
+      
+     <div class="container ">
+            <table class="table table-striped table-borderless border border-success text-center">
+                    <thead class="" style="background-color: #03d437">
+                      <tr>
+                        <th>Banque</th>
+                        <th>Descriptif</th>
+                        <th>Numero</th>
+                        <th>Solde depart</th>
+                        <th>T. Depences</th>
+                        <th>T. Recettes</th>
+                        <th>Solde Actuel</th>
+                        <th>Outils</th>
+                    </thead>
+                    <tbody>
+                      {% for compte in comptes %}
+                      <tr class="">
+                        <td>{{compte['banque_id']}}</td>
+                        <td>
+                        <a href="{{url_for('show_compte', compte_id=compte['id'])}}">
+                          {{compte['definition']}}</td>
+                        <td>
+                        <a href="{{url_for('show_compte', compte_id=compte['id'])}}">
+                          {{compte['numero']}}                          
+                        </td>
+                        <td>{{compte['mdepart']}}</td>
+                        <td>500</td>
+                        <td>2020</td>
+                        <!--<td>2000</td>-->
+                        <td>-20</td>
+                        <td style="text-align:right">
+                            <form style="display:inline" method="post">
+                              <input type="hidden" name="categorie_id" value="1">
+                              <button type="submit" class="btn btn-sm"><i class="material-icons">delete</i></button>
+                            </form>
+                            <a class="btn btn-sm" href="/edit_compte.html">
+                                <i class="material-icons">edit</i>
+                             </a>
+                         </td>
+                      </tr>
+
+                      {% endfor %}
+
+                    </tbody>
+            
+                  </table>
+          </div>
+          <br>
+          <div class="container ">
+                <div class="col">
+                  <p class="text h5">Ajouter un compte .<br>
+                </div>
+                
+
+        <div class="container">
+                <form method="post" action="/accueil_user.html">
+          
+                  <div class="row">
+                    <div class="col">
+                      <label for="banque">Banque *</label>
+                      <input type="text" id="banque_comptes" name="banque_comptes" required="" class="form-control" placeholder="Banque">
+                    </div>
+                    <div class="col">
+                      <label for="descriptif">descriptif *</label>
+                      <input type="text" id="descritif_comptes" name="descriptif_comptes" required="" class="form-control" placeholder="Descriptif du compte">
+                    </div>
+                    <div class="col">
+                            <label for="numero">Numero*</label>
+                            <input type="text" id="numero_comptes" name="numero_comptes" required="" class="form-control" placeholder="Numero de compte">
+                          </div>
+                          <div class="col">
+                            <label for="descriptif">Montant depart *</label>
+                            <input type="text" id="montant_comptes" name="montant_comptes" required="" class="form-control" placeholder="Montant de depart">
+                          </div>
+                  </div>
+                  <br>
+                  <div>
+                    <p class="text h6"> Les champs signalées avec * sont obligatoires</p>
+                  </div>
+                  <br>
+                  <button type="submit" class="btn btn-outline-success">Ajouter</button>
+                </form>
+        </div>
+
+{% endblock %}

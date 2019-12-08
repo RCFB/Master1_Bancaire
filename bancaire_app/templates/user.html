@@ -1,0 +1,87 @@
+{% extends "base_user.html" %}
+{% block title %} Accueil User {% endblock %}
+{% block content %}
+
+     <div class="col">
+      <p class="text h5">Bonjour {{utilisateur['genre']}} {{utilisateur['nom']}}.<br>
+      <p class="text h5">Voici un extract de vous compte pour ce mois ci .<br>
+     </div>
+
+    {% for compte in comptes %}
+
+     <div class="container ">
+          <table class="table table-striped table-borderless border border-success text-center">
+            <thead class="" style="background-color: #03d437">
+              <tr>
+                <th>Date</th>  <!-- date d'operation -->
+                <th>Libellé</th>  <!-- Operation  -->
+                <th>Rubrique</th>  <!-- Type de depence ou revenu "alimentation, santé, salaire..." -->
+                <th>Mode</th>  <!-- Type  " cheque, especes, carte bleu, Paypal, virement" -->
+                <th>N.ref</th>  <!-- Numero de chéque, virement si payé par chéque ou virement-->
+                <th>Tiers</th>
+                <th>Cat</th>  <!-- categorie d'operation "recettes, depenses"-->
+                <th>Montant</th>  <!-- Montan de l'operation -->
+              </tr>
+            </thead>
+    
+            <tbody>
+              <tr class="">
+                <td>05/05/2019</td>
+                <td>Credit Auto</td>
+                <td>Credit</td>
+                <td>Prelevement</td>
+                <td>38</td>
+                <td>Credit de France</td>
+                <td>Depense</td>
+                <td>-330</td>
+              </tr>
+    
+              <tr class="">
+                <td>14/05/2019</td>
+                <td>Taxe d'habitation</td>
+                <td>Impots</td>
+                <td>Prelevement</td>
+                <td>5942</td>
+                <td>Tresor Public</td>
+                <td>Depense</td>
+                <td>-90</td>
+              </tr>
+    
+              <tr class="">
+                <td>30/05/2019</td>
+                <td>Virement interne</td>
+                <td>V.interne</td>
+                <td>Virement</td>
+                <td>6365</td>
+                <td>Compte LCL</td>
+                <td>Recette</td>
+                <td>400</td>
+              </tr>
+            </tbody>
+    
+            <thead class="" style="background-color: #a0dfa0">
+              <tr>
+                <td><strong>Compte</strong></td>
+                <td><strong>
+                  <a href="{{url_for('show_compte', compte_id=compte['id'])}}">
+                         {{compte['definition']}} </strong>
+                </td>
+                <td>
+                    <strong>
+                    <a href="{{url_for('show_compte', compte_id=compte['id'])}}">
+                          {{compte['numero']}} </strong>
+                </td>
+                <th></th>  
+                <th></th>
+                <th></th>
+                <th>Solde</th> 
+                <th>-20</th>
+              </tr>
+            </thead>
+    
+          </table>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}
